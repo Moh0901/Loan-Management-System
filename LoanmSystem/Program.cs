@@ -14,22 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+//service to register validator automatically
 builder.Services.AddControllers()
- .AddFluentValidation(c =>
- c.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
-
-/*builder.Services.AddControllers()
-     .AddFluentValidation(options =>
-     {
-         // Validate child properties and root collection elements
-         options.ImplicitlyValidateChildProperties = true;
-         options.ImplicitlyValidateRootCollectionElements = true;
-
-         // Automatic registration of validators in assembly
-         options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-     });
-*/
-
+   .AddFluentValidation(c =>
+        c.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly())
+   );
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

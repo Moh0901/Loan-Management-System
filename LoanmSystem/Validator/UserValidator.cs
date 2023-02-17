@@ -17,7 +17,7 @@ namespace LoanmSystem.Validator
                     .Matches(@"[A-Z]+").WithMessage("Your password must contain at least one uppercase letter.")
                     .Matches(@"[a-z]+").WithMessage("Your password must contain at least one lowercase letter.")
                     .Matches(@"[0-9]+").WithMessage("Your password must contain at least one number.");
-            RuleFor(user => user.role).NotNull().NotEmpty().Equal("User");
+            RuleFor(user => user.role).NotNull().NotEmpty().Must(role => (role == "Admin") || (role == "User"));
         }
     }
 }
