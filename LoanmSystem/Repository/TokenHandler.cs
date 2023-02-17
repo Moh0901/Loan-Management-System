@@ -22,8 +22,7 @@ namespace LoanmSystem.Repository
             {
                 new Claim(ClaimTypes.Name , user.name),
                 new Claim(ClaimTypes.Role , user.role),
-
-           };
+            };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
 

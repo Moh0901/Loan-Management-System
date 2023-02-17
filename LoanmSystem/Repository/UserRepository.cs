@@ -1,6 +1,8 @@
 ﻿using LoanmSystem.DTO;
 using LoanmSystem.Model;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace LoanmSystem.Repository
 {
@@ -43,6 +45,7 @@ namespace LoanmSystem.Repository
 
         public User AddUser(UserDTO user)
         {
+         
             var newUser = new Model.User()
             {
                 name = user.name,

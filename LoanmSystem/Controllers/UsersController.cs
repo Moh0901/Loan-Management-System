@@ -1,8 +1,15 @@
-﻿using LoanmSystem.DTO;
+﻿
+
+using LoanmSystem.DTO;
+using LoanmSystem.Model;
 using LoanmSystem.Repository;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace LoanmSystem.Controllers
 {
@@ -14,9 +21,8 @@ namespace LoanmSystem.Controllers
 
         public UsersController(IUserRepository userRepository)
         {
-
             _userRepository = userRepository;
-
+          
         }
 
         [Authorize(Roles = "admin")]
@@ -82,6 +88,7 @@ namespace LoanmSystem.Controllers
         [HttpPost]
         public IActionResult PostUser(UserDTO user)
         {
+
             if (user == null)
             {
                 return NotFound("User Not Found");

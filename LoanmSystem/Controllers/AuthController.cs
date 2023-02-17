@@ -1,6 +1,5 @@
 ﻿using LoanmSystem.Model;
 using LoanmSystem.Repository;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LoanmSystem.Controllers
